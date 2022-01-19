@@ -1,0 +1,27 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-rows: 80px 200px; */
+  grid-gap: 10px;
+}
+#heading {
+  grid-column: 1;
+}
+#tank-world {
+  grid-column: 1;
+}
+#ui {
+  grid-column: 1;
+}
+.tank {
+  display: grid;
+  cursor: pointer;
+}
+.tank > #image {
+  font-size: 8px;
+}
+.tank > #stats {
+  font-size: 4px;
+}
