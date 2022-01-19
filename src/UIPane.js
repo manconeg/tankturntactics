@@ -2,14 +2,15 @@ import React from "react";
 
 export default class UIPane extends React.Component {
   render() {
+    let myTank = this.props.controls.tanksData[this.props.controls.mytank];
     return (
       <div id="ui">
         <div>
           <h1>Stats</h1>
           <ul>
-            <li>Actions: </li>
-            <li>Hit Points: </li>
-            <li>Range: </li>
+            <li>Actions: {myTank.actions}</li>
+            <li>Hit Points: {myTank.hearts}</li>
+            <li>Range: {myTank.range}</li>
           </ul>
         </div>
         <div>
@@ -18,8 +19,8 @@ export default class UIPane extends React.Component {
           <button onClick={() => this.props.controls.right()}>R</button>
           <button onClick={() => this.props.controls.up()}>U</button>
           <button onClick={() => this.props.controls.down()}>D</button>
-          <button>Range</button>
-          <button>Fire</button>
+          <button onClick={() => this.props.controls.range()}>Range</button>
+          <button onClick={() => this.props.controls.fire()}>Fire</button>
         </div>
         <div>
           <h1>Free Actions</h1>

@@ -25,3 +25,9 @@
 .tank > #stats {
   font-size: 4px;
 }
+#ui {
+  display: grid;
+}
+#ui > div {
+  grid-row: 1;
+}

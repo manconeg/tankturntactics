@@ -8,7 +8,7 @@ export default class Tank extends React.Component {
     }
 
     return (
-      <div className="tank">
+      <div className="tank" key={this.props.key}>
         <div id="image">{this.props.image}</div>
         <div id="stats">
           <div>{hearts}</div>
