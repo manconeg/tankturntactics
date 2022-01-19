@@ -1,6 +1,13 @@
 import React from "react";
+import TankBrains from "./TankBrains";
 
-export default class UIPane extends React.Component {
+interface IProps {
+  controls: TankBrains;
+}
+
+interface IState {}
+
+export default class UIPane extends React.Component<IProps, IState> {
   render() {
     let myTank = this.props.controls.tanksData[this.props.controls.mytank];
     return (

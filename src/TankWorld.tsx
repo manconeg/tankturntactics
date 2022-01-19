@@ -1,14 +1,26 @@
 import React from "react";
-
+import ITile from "./ITile";
 import Tank from "./Tank";
+import Terrain from "./Terrain";
 
-export default class TankWorld extends React.Component {
-  constructor(props) {
+interface IProps {
+  terrain: Terrain[][];
+  tanks: Tank[];
+}
+
+interface IState {
+  showRange: Tank;
+}
+
+export default class TankWorld extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      showRange: null
+    };
   }
 
-  showRange(tank) {
+  showRange(tank: ITile) {
     if (tank instanceof Tank) {
       this.setState({
         showRange: tank
@@ -16,10 +28,10 @@ export default class TankWorld extends React.Component {
     }
   }
 
-  hideRange(tank) {
+  hideRange(tank: ITile) {
     if (this.state.showRange === tank) {
       this.setState({
-        showRange: false
+        showRange: null
       });
     }
   }
@@ -43,9 +55,9 @@ export default class TankWorld extends React.Component {
       }
     }
 
-    let contents = this.props.terrain[y][x];
+    let contents: ITile = this.props.terrain[y][x];
 
-    this.props.tanks.forEach((tank) => {
+    this.props.tanks.forEach((tank: Tank) => {
       if (tank.props.location.x === x && tank.props.location.y === y) {
         contents = tank;
       }

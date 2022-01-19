@@ -7,8 +7,14 @@ import Tank from "./Tank";
 import Terrain from "./Terrain";
 import TankBrains from "./TankBrains";
 
-export default class App extends React.Component {
-  constructor(props) {
+interface IProps {}
+
+interface IState {
+  controls: TankBrains;
+}
+
+export default class App extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
 
     this.state = {
@@ -17,11 +23,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    let tanks = this.state.controls.tanksData.map((tankData) => {
+    let tanks: Tank[] = this.state.controls.tanksData.map((tankData) => {
       return new Tank(tankData);
     });
 
-    let terrain = [];
+    let terrain: Terrain[][] = [];
     for (let y in this.state.controls.terrainData) {
       terrain.push([]);
       for (let x in this.state.controls.terrainData[y]) {

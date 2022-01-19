@@ -1,5 +1,14 @@
+import App from "./App";
+import ITanksData from "./ITanksData";
+
+interface TerrainData {
+  image: string;
+}
+
 export default class TankBrains {
-  tanksData = [
+  app: App;
+  terrainData: TerrainData[][];
+  tanksData: ITanksData[] = [
     {
       key: 0,
       actions: 3,
@@ -19,7 +28,7 @@ export default class TankBrains {
   ];
   mytank = 0;
 
-  constructor(app) {
+  constructor(app: App) {
     this.app = app;
     this.terrainData = [];
     for (let y = 0; y < 12; y++) {
@@ -75,4 +84,6 @@ export default class TankBrains {
       this.app.forceUpdate();
     }
   }
+
+  fire() {}
 }
