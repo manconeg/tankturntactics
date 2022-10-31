@@ -9,6 +9,10 @@ interface IState {}
 
 export default class UIPane extends React.Component<IProps, IState> {
   render() {
+    if (!this.props.controls.tanksData.length) {
+      return <div>loading</div>;
+    }
+
     let myTank = this.props.controls.tanksData[this.props.controls.mytank];
     return (
       <div id="ui">

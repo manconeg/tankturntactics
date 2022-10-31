@@ -4,7 +4,8 @@ export default interface TanksData {
   key: number;
   actions: number;
   location: ILocation;
-  image: String;
+  image: string;
   hearts: number;
   range: number;
+  who: string;
 }

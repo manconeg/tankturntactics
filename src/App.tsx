@@ -6,6 +6,7 @@ import UIPane from "./UIPane";
 import Tank from "./Tank";
 import Terrain from "./Terrain";
 import TankBrains from "./TankBrains";
+import RemoteGameLogic from "./RemoteGameLogic";
 
 interface IProps {}
 
@@ -17,8 +18,10 @@ export default class App extends React.Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
 
+    let apiManager = new RemoteGameLogic();
+
     this.state = {
-      controls: new TankBrains(this)
+      controls: new TankBrains(this, apiManager)
     };
   }
 
